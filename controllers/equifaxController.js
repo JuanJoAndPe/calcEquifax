@@ -15,7 +15,7 @@ async function consultarPorCedula(req, res) {
         primaryConsumer: {
           personalInformation: {
             tipoDocumento: "C",
-            numeroDocumento: cedula
+            numeroDocumento: "0116389420"
           }
         }
       },
