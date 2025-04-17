@@ -137,3 +137,5 @@ dist
 
 .env
 main.js
+index.html
+styles.css
