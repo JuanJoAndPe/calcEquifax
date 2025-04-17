@@ -11,10 +11,23 @@ async function consultarPorCedula(req, res) {
     const token = await getToken();
 
     const payload = {
-      documentType: "CED",
-      documentNumber: cedula,
-      country: "EC",
-      inquiryReason: "CONSULTA", // Ajustar según documentación de Equifax
+      applicants: {
+        primaryConsumer: {
+          personalInformation: {
+            tipoDocumento: "C",
+            numeroDocumento: cedula
+          }
+        }
+      },
+      productData: {
+        billTo: "000042B001",
+        shipTo: "000042B001S0001",
+        productName: "ECREPORTE",
+        productOrch: "Reporte360",
+        configuration: "Reporte360",
+        customer: "ECRE360MANTILLATERAN",
+        model: "360MANTILLATERAN"
+      }
     };
 
     const response = await axios.post(equifaxApiUrl, payload, {
